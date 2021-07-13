@@ -11,7 +11,7 @@ import (
 	"gopkg.in/yaml.v2"
 )
 
-func applyConfig(telarConfig TelarConfig) error {
+func ApplyConfig(telarConfig TelarConfig) error {
 	for _, repo := range []string{"telar-web", "ts-serverless"} {
 		repoPath := telarConfig.PathWD + "/" + repo
 

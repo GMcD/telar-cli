@@ -331,7 +331,7 @@ func starteploy(clientInput ClientInputs) {
 		RefEmail:         clientInput.Gmail,
 	}
 
-	err := applyConfig(telarConfig)
+	err := ApplyConfig(telarConfig)
 	if isError(err) {
 		echoDialogInfo(err.Error(), "")
 		echoOpenDeploy(false)
