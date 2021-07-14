@@ -10,3 +10,9 @@ vendor/
 *.app
 pkged.go
 bin
+
+# Packages for local import
+cmd/go.mod
+pkg/content/go.mod
+pkg/env/go.mod
+pkg/log/go.mod

@@ -149,8 +149,10 @@ func PingHandler(w http.ResponseWriter, r *http.Request) {
 }
 func Echo(message ClientAction) {
 
-	if err := conn.WriteJSON(message); err != nil {
-		log.Error(err.Error())
-	}
+    if conn != nil {
+    	if err := conn.WriteJSON(message); err != nil {
+    		log.Error(err.Error())
+    	}
+    }
 
 }

@@ -50,17 +50,17 @@ const (
 )
 
 type TelarSecrets struct {
-	MongoURI,
-	MongoDB,
-	RecaptchaKey,
-	TsClientSecret,
-	RedisPwd,
-	AdminUsername,
-	AdminPwd,
-	PayloadSecret,
-	RefEmailPwd,
-	PhoneAuthToken,
-	PhoneAuthId string
+	MongoURI           string `json:"mongoDBURI"  yaml:"mongoDBURI,omitempty"`
+	MongoDB            string `json:"mongoDBName"  yaml:"mongoDBName,omitempty"`
+	RecaptchaKey       string `json:"recaptchaKey"  yaml:"recaptchaKey,omitempty"`
+	TsClientSecret     string `json:"githubOAuthSecret"  yaml:"githubOAuthSecret,omitempty"`
+	RedisPwd           string `json:"redisPwd"  yaml:"redisPwd,omitempty"`
+	AdminUsername      string `json:"adminUsername"  yaml:"adminUsername,omitempty"`
+	AdminPwd           string `json:"adminPassword"  yaml:"adminPassword,omitempty"`
+	PayloadSecret      string `json:"payloadSecret"  yaml:"payloadSecret,omitempty"`
+	RefEmailPwd        string `json:"gmailPassword"  yaml:"gmailPassword,omitempty"`
+	PhoneAuthToken     string `json:"phoneAuthToken"  yaml:"phoneAuthToken,omitempty"`
+	PhoneAuthId        string `json:"phoneAuthId"  yaml:"phoneAuthId,omitempty"`
 }
 
 type ClientState struct {
@@ -101,20 +101,20 @@ type ClientInputs struct {
 }
 
 type TelarConfig struct {
-	AppID            string `json:"ppID"`
-	SecretName       string `json:"secretName"`
-	GithubUsername   string `json:"githubUsername"`
-	PathWD           string `json:"pathWD"`
-	CoockieDomain    string `json:"coockieDomain"`
-	Bucket           string `json:"bucket"`
-	ClientID         string `json:"clientID"`
-	Gateway          string `json:"gateway"`
-	Origin           string `json:"origin"`
-	WebsocketURL     string `json:"websocketURL"`
-	MongoDBURI       string `json:"mongoDBURI"`
-	MongoDatabase    string `json:"mongoDatabase"`
-	RecaptchaSiteKey string `json:"recaptchaSiteKey"`
-	RefEmail         string `json:"refEmail"`
+	AppID            string `json:"appID"  yaml:"appID,omitempty"`
+	SecretName       string `json:"secretName"  yaml:"secretName,omitempty"`
+	GithubUsername   string `json:"githubUsername"  yaml:"githubUsername,omitempty"`
+	PathWD           string `json:"pathWD"  yaml:"pathWD,omitempty"`
+	CoockieDomain    string `json:"coockieDomain"  yaml:"coockieDomain,omitempty"`
+	Bucket           string `json:"bucket"  yaml:"bucket,omitempty"`
+	ClientID         string `json:"clientID"  yaml:"clientID,omitempty"`
+	Gateway          string `json:"gateway"  yaml:"gateway,omitempty"`
+	Origin           string `json:"origin"  yaml:"origin,omitempty"`
+	WebsocketURL     string `json:"websocketURL"  yaml:"websocketURL,omitempty"`
+	MongoDBURI       string `json:"mongoDBURI"  yaml:"mongoDBURI,omitempty"`
+	MongoDatabase    string `json:"mongoDatabase"  yaml:"mongoDatabase,omitempty"`
+	RecaptchaSiteKey string `json:"recaptchaSiteKey"  yaml:"recaptchaSiteKey,omitempty"`
+	RefEmail         string `json:"refEmail"  yaml:"refEmail,omitempty"`
 }
 
 type UIGatewayConfig struct {
