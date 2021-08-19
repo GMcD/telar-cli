@@ -103,10 +103,10 @@ func cloneTSUI(rootDir, githubUsername string) error {
 		return err
 	}
 	if exist == true {
-		log.Info("Telar social user interface repository exist. %s", path)
+		log.Info("Telar social user interface repository exists. %s", path)
 		return nil
 	}
-	return gitClone(rootDir+"/ts-ui", fmt.Sprintf("%s/ts-ui.git", githubUsername))
+	return gitClone(rootDir+"/ts-ui", fmt.Sprintf("%sts-ui.git", githubUsername))
 }
 
 func cloneTSServerless(rootDir, githubUsername string) error {
@@ -116,10 +116,23 @@ func cloneTSServerless(rootDir, githubUsername string) error {
 		return err
 	}
 	if exist == true {
-		log.Info("Telar social serverless repository exist. %s", path)
+		log.Info("Telar social serverless repository exists. %s", path)
 		return nil
 	}
-	return gitClone(path, fmt.Sprintf("%s/ts-serverless.git", githubUsername))
+	return gitClone(path, fmt.Sprintf("%sts-serverless.git", githubUsername))
+}
+
+func cloneTSWebSocket(rootDir, githubUsername string) error {
+	path := rootDir + "/ts-websocket"
+	err, exist := directoryFileExist(path)
+	if isError(err) {
+		return err
+	}
+	if exist == true {
+		log.Info("Telar websocket repository exists. %s ", path)
+		return nil
+	}
+	return gitClone(path, fmt.Sprintf("%sts-websocket.git", githubUsername))
 }
 
 func cloneTelarWeb(rootDir, githubUsername string) error {
@@ -129,8 +142,8 @@ func cloneTelarWeb(rootDir, githubUsername string) error {
 		return err
 	}
 	if exist == true {
-		log.Info("Telar web repository exist. %s ", path)
+		log.Info("Telar web repository exists. %s ", path)
 		return nil
 	}
-	return gitClone(path, fmt.Sprintf("%s/telar-web.git", githubUsername))
+	return gitClone(path, fmt.Sprintf("%stelar-web.git", githubUsername))
 }

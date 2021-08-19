@@ -208,7 +208,7 @@ func CheckIngredient(projectPath string, githubUsername string) {
 	}
 	echoInput("cloneTsServerless", true)
 
-	// Check ts-ui repository
+    // Check ts-ui repository
 	err = cloneTSUI(projectPath, githubUsername)
 	if isError(err) && err.Error() != "repository already exists" {
 		errMessage := "ts-ui " + err.Error()
@@ -220,6 +220,19 @@ func CheckIngredient(projectPath string, githubUsername string) {
 		return
 	}
 	echoInput("cloneTsUi", true)
+
+    // Check ts-websocket repository
+	err = cloneTSWebSocket(projectPath, githubUsername)
+	if isError(err) && err.Error() != "repository already exists" {
+		errMessage := "ts-websocket " + err.Error()
+
+		echoDialogInfo(errMessage, helpURL)
+		echoInput("loadingCheckIngredients", false)
+
+		log.Error(errMessage)
+		return
+	}
+	echoInput("cloneTSWebSocket", true)
 
 	echoStep(3)
 }
